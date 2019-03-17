@@ -1,0 +1,28 @@
+#应用名称
+spring:
+  application:
+    name: ribbon
+  cloud:
+    #consul配置
+    consul:
+      #consul服务地址
+      host: localhost
+      #consul服务端口号
+      port: 8500
+      discovery:
+        #服务注册到consul的显示名称
+        serviceName: ribbon
+      #consul config配置
+      #在consul web页面的kv菜单中配置格式如下：
+      #[prefix]/[spring.application.name][profile-separator][spring-profiles-active]/[data-key]
+      config:
+        #enabled 设置config是否启用，默认为true
+        enabled: true
+        #format 设置配置的值的格式，可以yaml和properties
+        format: yaml
+        #prefix 设置consol k/v配置的基本目录，比如config
+        prefix: config
+        #profileSeparator profiles配置分隔符,默认为‘,’
+        profile-separator: '/'
+        #date-key为应用配置的key名字，值为整个应用配置的字符串
+        data-key: data
